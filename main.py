@@ -1,27 +1,4 @@
-# Áudios é em segundos
-usuarios = {
-	'lucas' : {
-		'mensagens' : 7,
-		'stickers' : 2,
-		'midias' : 2,
-		'audios' : 1,
-	},
-	
-	'cosi' : {
-		'mensagens' : 23,
-		'stickers' : 14,
-		'midias' : 3,
-		'audios' : 1
-	},
-
-	'pablo' : {
-		'mensagens' : 21,
-		'stickers' : 5,
-		'midias' : 2,
-		'audios' : 7
-	}
-}
-
+# Base de uma mensagem
 #[02/05/19 15:00:56] Pablo: nao sou obrigado a viver num mundo onde o mormaço é rei e acha q ta certo
 def organiza(Arq):
 
@@ -43,25 +20,22 @@ def organiza(Arq):
 				nome = dados[2].replace(':', '')
 				nome = nome.replace('\u200e', '')
 				tipoMsg = dados[3].replace('\u200e', '')
-				print(tipoMsg, end=" - ")
 				
 				if nome in usuarios:
-					print(tipoMsg)
-					
-					if tipoMsg == "‎sticker":
+					if tipoMsg == "sticker":
 						usuarios[nome]['sticker'] = usuarios[nome]['sticker'] + 1
 					elif tipoMsg == "image":
 						usuarios[nome]['image'] = usuarios[nome]['image'] + 1
 					elif tipoMsg == "audio":
 						usuarios[nome]['audio'] = usuarios[nome]['audio'] + 1
-					else:
-						usuarios[nome]['mensagem'] = usuarios[nome]['mensagem'] + 1
+
+					usuarios[nome]['mensagem'] = usuarios[nome]['mensagem'] + 1
 							
 				else:
 					# tem que ver o tipo de mensagem aqui também
 					
 					usuarios[nome] = {
-						'mensagem' : 0,
+						'mensagem' : 1,
 						'sticker' : 0,
 						'image' : 0,
 						'audio' : 0,
