@@ -1,61 +1,82 @@
 # Base de uma mensagem
-#[02/05/19 15:00:56] Pablo: nao sou obrigado a viver num mundo onde o mormaço é rei e acha q ta certo
+# [02/05/19 15:00:56] Pablo: nao sou obrigado a viver num mundo onde o mormaço é rei e acha q ta certo
+# [04/05/19 00:20:22] ‪+55 15 98124‑6169‬: KKKKKKKK
+# ‎[04/05/19 02:56:42] Cosi: ‎sticker omitted
+
+def limpaDados(dados):
+	for i in range(0, len(dados)):
+		dados[i] = dados[i].replace('\u200a', '').replace('\u200b', '').replace('\u200c', '').replace('\u200d', '').replace('\u200e', '').replace('\u200f', '').replace('\u202a', '').replace('\u202b', '').replace('\u202c', '').replace('\u202d', '').replace('\u202e', '').replace('\u202f', '')
+
+def separaMensagem(mensagem):
+	valida = False
+	nome = "dummy"
+	tipo = "dummy"
+	dados = mensagem.split()
+	
+	if dados:
+		limpaDados(dados)
+		valida = dados[0]
+
+		# Pegar nome pelo : (usar string.endswith())
+		if valida.startswith('['):
+			valida = True
+			nome = dados[2].replace(':', '')
+
+			# Caso seja um telefone e não um contanto
+			if nome.replace("+", "").isdigit():
+				nome = nome + " " + dados[3] + " " + dados[4].replace(":", "")
+				tipo = dados[5]
+
+			else:
+				tipo = dados[3]
+
+
+		else:
+			valida = False
+
+	return valida, nome, tipo
+
 def organiza(Arq):
 
 	usuarios = {}
-	string = Arq.readline()
+	linha = Arq.readline()
 
-	# dados[0] = [02/05/19 
-	# dados[1] = 15:00:56]
-	# dados[2] = Pablo
-	# dados[3...] = mensagem
-
-	while string != "":
-		dados = string.split()
+	while linha != "":
+		linha = Arq.readline()
+		valida, nome, tipo = separaMensagem(linha)
 		
-		if dados:
-			msgValida = dados[0].replace('\u200e', '')
-			
-			if msgValida.startswith('['):
-				nome = dados[2].replace(':', '')
-				nome = nome.replace('\u200e', '')
-				tipoMsg = dados[3].replace('\u200e', '')
+		if valida:
+			if nome not in usuarios:
+				usuarios[nome] = {
+					'mensagem' : 0,
+					'sticker' : 0,
+					'image' : 0,
+					'audio' : 0,
+				}			
+
+			if tipo == "sticker":
+				usuarios[nome]['sticker'] = usuarios[nome]['sticker'] + 1
+			elif tipo == "image":
+				usuarios[nome]['image'] = usuarios[nome]['image'] + 1
+			elif tipo == "audio":
+				usuarios[nome]['audio'] = usuarios[nome]['audio'] + 1
 				
-				if nome in usuarios:
-					if tipoMsg == "sticker":
-						usuarios[nome]['sticker'] = usuarios[nome]['sticker'] + 1
-					elif tipoMsg == "image":
-						usuarios[nome]['image'] = usuarios[nome]['image'] + 1
-					elif tipoMsg == "audio":
-						usuarios[nome]['audio'] = usuarios[nome]['audio'] + 1
-
-					usuarios[nome]['mensagem'] = usuarios[nome]['mensagem'] + 1
-							
-				else:
-					# tem que ver o tipo de mensagem aqui também
-					
-					usuarios[nome] = {
-						'mensagem' : 1,
-						'sticker' : 0,
-						'image' : 0,
-						'audio' : 0,
-					}	
-			
-		string = Arq.readline()
+			usuarios[nome]['mensagem'] = usuarios[nome]['mensagem'] + 1	
+				
+	return usuarios
 	
-	for u in usuarios:
-		print(u, usuarios[u])
-	
-# x = {'a' : 0, 'b': 2, 'c' : 1}
-# sorted(dic.items(), key=lambda dic: dic[1]['mensagens'])
-
+def printEstatisticas():
+	# sorted(dic.items(), key=lambda dic: dic[1]['mensagens'])
+	return "placeholder"
 
 # MAIN
 opcao = input("Selecione o arquivo para estatísticas: ")
 
 try:
 	Arq = open(opcao, "r")
-	organiza(Arq)
-
 except FileNotFoundError:
-	print("O arquivo digitado não existe")
+	print("O arquivo digitado não existe (você colocou o caminho correto e a extensão correta?)")
+
+usuarios = organiza(Arq)
+for u in usuarios:
+	print(u, usuarios[u])
