@@ -1,31 +1,26 @@
-Selecione o arquivo para estatísticas: Moranço {'mensagem': 3342, 'sticker': 24, 'image': 133, 'audio': 10}
-Pablo {'mensagem': 5801, 'sticker': 714, 'image': 345, 'audio': 64}
-Shinki {'mensagem': 121, 'sticker': 2, 'image': 8, 'audio': 0}
-Bruno {'mensagem': 2992, 'sticker': 637, 'image': 147, 'audio': 0}
-Leozin {'mensagem': 4229, 'sticker': 139, 'image': 65, 'audio': 77}
-Cosi {'mensagem': 6693, 'sticker': 1466, 'image': 345, 'audio': 19}
-Yakult {'mensagem': 1984, 'sticker': 228, 'image': 170, 'audio': 13}
-Eleven {'mensagem': 6351, 'sticker': 213, 'image': 265, 'audio': 71}
-Choco {'mensagem': 5785, 'sticker': 295, 'image': 170, 'audio': 17}
-Arthur {'mensagem': 2298, 'sticker': 88, 'image': 90, 'audio': 4}
-Drauzio {'mensagem': 1119, 'sticker': 29, 'image': 24, 'audio': 8}
-+55 11 99711‑1223 {'mensagem': 1728, 'sticker': 32, 'image': 17, 'audio': 2}
-Lucas {'mensagem': 1133, 'sticker': 0, 'image': 0, 'audio': 0}
-+55 15 98124‑6169 {'mensagem': 2096, 'sticker': 149, 'image': 47, 'audio': 15}
-+55 16 99114‑7120 {'mensagem': 2793, 'sticker': 117, 'image': 185, 'audio': 24}
-Pastor {'mensagem': 899, 'sticker': 9, 'image': 72, 'audio': 1}
-+55 15 99629‑6692 {'mensagem': 1, 'sticker': 0, 'image': 0, 'audio': 0}
-Toy {'mensagem': 2143, 'sticker': 79, 'image': 127, 'audio': 4}
-Natham {'mensagem': 3742, 'sticker': 137, 'image': 195, 'audio': 30}
-+55 15 99747‑1294 {'mensagem': 1510, 'sticker': 146, 'image': 73, 'audio': 3}
-Verinha {'mensagem': 3861, 'sticker': 258, 'image': 187, 'audio': 15}
-+55 15 99144‑9204 {'mensagem': 204, 'sticker': 10, 'image': 24, 'audio': 2}
-+55 15 98100‑5099 {'mensagem': 571, 'sticker': 4, 'image': 24, 'audio': 0}
-+55 15 99797‑5283 {'mensagem': 261, 'sticker': 5, 'image': 3, 'audio': 0}
-Mateus {'mensagem': 2, 'sticker': 0, 'image': 0, 'audio': 0}
-+55 16 99287‑6061 {'mensagem': 34, 'sticker': 0, 'image': 3, 'audio': 1}
- {'mensagem': 1, 'sticker': 0, 'image': 0, 'audio': 0}
-Natã {'mensagem': 1, 'sticker': 0, 'image': 0, 'audio': 0}
-Amorzão {'mensagem': 2, 'sticker': 0, 'image': 0, 'audio': 0}
-Gabriela {'mensagem': 2, 'sticker': 0, 'image': 0, 'audio': 0}
-Pedro {'mensagem': 1, 'sticker': 0, 'image': 0, 'audio': 0}
+Estatísticas do grupo: [02/05/19 14:59:57] OBRIGADO MORMAÇO ADM 🍒
+ 
+('Cosi', {'mensagem': 6884, 'sticker': 1517, 'image': 354, 'audio': 22})
+('Eleven', {'mensagem': 6651, 'sticker': 222, 'image': 281, 'audio': 77})
+('Pablo', {'mensagem': 6191, 'sticker': 726, 'image': 359, 'audio': 64})
+('Choco', {'mensagem': 6075, 'sticker': 296, 'image': 176, 'audio': 17})
+('Leozin', {'mensagem': 4338, 'sticker': 139, 'image': 74, 'audio': 78})
+('Verinha', {'mensagem': 4049, 'sticker': 260, 'image': 194, 'audio': 16})
+('Natham', {'mensagem': 3807, 'sticker': 139, 'image': 198, 'audio': 31})
+('Moranço', {'mensagem': 3503, 'sticker': 26, 'image': 137, 'audio': 13})
+('Bruno', {'mensagem': 3025, 'sticker': 644, 'image': 148, 'audio': 0})
+('+55 16 99114‑7120', {'mensagem': 2889, 'sticker': 122, 'image': 191, 'audio': 26})
+('Arthur', {'mensagem': 2405, 'sticker': 91, 'image': 94, 'audio': 4})
+('Toy', {'mensagem': 2181, 'sticker': 79, 'image': 127, 'audio': 4})
+('+55 15 98124‑6169', {'mensagem': 2132, 'sticker': 150, 'image': 48, 'audio': 15})
+('Yakult', {'mensagem': 2100, 'sticker': 229, 'image': 176, 'audio': 13})
+('+55 11 99711‑1223', {'mensagem': 1771, 'sticker': 34, 'image': 19, 'audio': 2})
+('+55 15 99747‑1294', {'mensagem': 1541, 'sticker': 146, 'image': 75, 'audio': 3})
+('Lucas', {'mensagem': 1211, 'sticker': 0, 'image': 0, 'audio': 0})
+('Drauzio', {'mensagem': 1159, 'sticker': 29, 'image': 27, 'audio': 8})
+('Pastor', {'mensagem': 948, 'sticker': 10, 'image': 72, 'audio': 1})
+('+55 15 98100‑5099', {'mensagem': 582, 'sticker': 4, 'image': 25, 'audio': 0})
+('+55 15 99797‑5283', {'mensagem': 261, 'sticker': 5, 'image': 3, 'audio': 0})
+('+55 15 99144‑9204', {'mensagem': 250, 'sticker': 13, 'image': 26, 'audio': 5})
+('Shinki', {'mensagem': 123, 'sticker': 2, 'image': 8, 'audio': 0})
+('+55 16 99287‑6061', {'mensagem': 34, 'sticker': 0, 'image': 3, 'audio': 1})

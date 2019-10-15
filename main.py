@@ -41,6 +41,9 @@ def organiza(Arq):
 	usuarios = {}
 	linha = Arq.readline()
 
+	print("\n\n\n")
+	print("Estatísticas do grupo:", linha, "\n\n\n")
+
 	while linha != "":
 		linha = Arq.readline()
 		valida, nome, tipo = separaMensagem(linha)
@@ -65,9 +68,33 @@ def organiza(Arq):
 				
 	return usuarios
 	
-def printEstatisticas():
-	# sorted(dic.items(), key=lambda dic: dic[1]['mensagens'])
-	return "placeholder"
+def printEstatisticas(usuarios, opcao):
+
+	if opcao == "N":
+		usuarios = sorted(usuarios.items(), key=lambda x: x[0], reverse=True)
+
+	elif opcao == "M":
+		usuarios = sorted(usuarios.items(), key=lambda x: x[1]['mensagem'], reverse=True)
+
+	elif opcao == "S":
+		usuarios = sorted(usuarios.items(), key=lambda x: x[1]['sticker'], reverse=True)
+
+	elif opcao == "I":
+		usuarios = sorted(usuarios.items(), key=lambda x: x[1]['image'], reverse=True)
+
+	elif opcao == "A":
+		usuarios = sorted(usuarios.items(), key=lambda x: x[1]['audio'], reverse=True)
+
+	print("\n")
+	for u in usuarios:
+		print(u)
+
+def toCsv(usuarios):
+	Saida = open("mktable/dados.csv", "w")
+	Saida.write("Nome;Número de Mensagens;Stickers;Imagens;Áudios\n")
+
+	for u in usuarios:
+		Saida.write("{};{};{};{};{}\n" .format(u, usuarios[u]['mensagem'], usuarios[u]['sticker'], usuarios[u]['image'], usuarios[u]['audio']))
 
 # MAIN
 opcao = input("Selecione o arquivo para estatísticas: ")
@@ -76,7 +103,9 @@ try:
 	Arq = open(opcao, "r")
 except FileNotFoundError:
 	print("O arquivo digitado não existe (você colocou o caminho correto e a extensão correta?)")
+	# Encerrar o programa aqui
+
+opcao = input("Escolha a opção de organização: [N] Nome [M] Número de mensagens [S] Número de stickers [I] Número de imagens/mídias [A] Número de áudios: ")
 
 usuarios = organiza(Arq)
-for u in usuarios:
-	print(u, usuarios[u])
+toCsv(usuarios)
