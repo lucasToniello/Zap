@@ -1,0 +1,11 @@
+O QUE FALTA:
+	- Suporte para chat com mídia
+	- Pegar mensagem
+	- Filtro pra mensagens
+	- Filtro pra outros dados
+	- Eliminar quem posta pouca msm
+	- Eliminar mensagens de outros grupos (hora antes da data)
+
+CORRIGIR:
+	- Nome do grupo
+	- ':' após nomes compostos
