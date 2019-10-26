@@ -4,6 +4,7 @@
 # ‎[04/05/19 02:56:42] Cosi: ‎sticker omitted
 # ‎[04/05/19 02:56:42] Lucas Toniello: ‎sticker omitted
 
+import os
 import sys
 
 # Limpa a mensagem de caracteres não asc que ficam na mensagem
@@ -15,6 +16,7 @@ def separaMensagem(mensagem):
 	valida = False
 	nome = "dummy"
 	tipo = "dummy"
+	palavras = []
 	dados = mensagem.split()
 	
 	if dados:
@@ -29,6 +31,7 @@ def separaMensagem(mensagem):
 			if nome.replace("+", "").isdigit():
 				nome = nome + " " + dados[3] + " " + dados[4].replace(":", "")
 				tipo = dados[5]
+				i = 5
 
 			else:
 				i = 2
@@ -41,11 +44,16 @@ def separaMensagem(mensagem):
 					nome += " " + dados[i]
 
 				tipo = dados[i+1]
+				i += 2
+
+			while i < len(dados):
+				palavras.append(dados[i])
+				i += 1
 
 		else:
 			valida = False
 
-	return valida, nome, tipo, "teste"
+	return valida, nome, tipo, palavras
 
 def organizaUsuarios(Arq):
 
@@ -74,7 +82,7 @@ def organizaUsuarios(Arq):
 					'sticker' : 0,
 					'image' : 0,
 					'audio' : 0,
-					# 'palavras' : {}
+					'palavras' : {}
 				}			
 
 			if tipo == "sticker":
@@ -83,17 +91,17 @@ def organizaUsuarios(Arq):
 				usuarios[nome]['image'] += 1
 			elif tipo == "audio":
 				usuarios[nome]['audio'] += 1
-			# else:
+			else:
 
-			# 	# Devemos adicionar ao dicionário do usuário todas as palavras que ele disse
-			# 	for p in palavras:
-			# 		# Primeiro convertemos a palavra toda pra minúscula para diminuirmos a quantidade de palavras
-			# 		p = p.lower()
+				# Devemos adicionar ao dicionário do usuário todas as palavras que ele disse
+				for p in palavras:
+					# Primeiro convertemos a palavra toda pra minúscula para diminuirmos a quantidade de palavras
+					p = p.lower()
 
-			# 		if p in usuarios[nome]['palavras']:
-			# 			usuarios[nome]['palavras'][p] += 1
-			# 		else:
-			# 			usuarios[nome]['palavras'][p] = 0
+					if p in usuarios[nome]['palavras']:
+						usuarios[nome]['palavras'][p] += 1
+					else:
+						usuarios[nome]['palavras'][p] = 1
 
 
 			usuarios[nome]['mensagem'] += 1
@@ -118,13 +126,18 @@ def ordenaDados(usuarios, opcao):
 
 	return usuarios
 
-def toCsv(nomeGrupo, usuarios):
-	Saida = open("saidas/" + nomeGrupo + ".csv", "w")
-	Saida.write("Nome;Número de Mensagens;Stickers;Imagens;Áudios\n")
+def SalvaDados(nomeGrupo, usuarios):
+
+	# if not os.path.exists("saidas/" + nomeGrupo):
+	# 	os.mkdir("saidas/" + nomeGrupo)
+
+	SaidaMsg = open("saidas/mensagens" + nomeGrupo + ".csv", "w")
+	# SaidaPlv = open("saidas/palavras" + nomeGrupo + ".csv", "w")
+	SaidaMsg.write("Nome;Número de Mensagens;Stickers;Imagens;Áudios\n")
 
 	for u in usuarios:
-		Saida.write("{};{};{};{};{}\n" .format(u[0], u[1]['mensagem'], u[1]['sticker'], u[1]['image'], u[1]['audio']))
-
+		SaidaMsg.write("{};{};{};{};{}\n" .format(u[0], u[1]['mensagem'], u[1]['sticker'], u[1]['image'], u[1]['audio']))
+		# print(u[1]['palavras'])
 # MAIN
 if len(sys.argv) < 2:
 	print("Erro: Arquivo do chat não informado")
@@ -140,4 +153,4 @@ opcao = input("Escolha a opção de organização: [N] Nome [M] Número de mensa
 
 nomeGrupo, usuarios = organizaUsuarios(Arq)
 usuarios = ordenaDados(usuarios, opcao)
-toCsv(nomeGrupo, usuarios)
+SalvaDados(nomeGrupo, usuarios)
