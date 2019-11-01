@@ -9,3 +9,19 @@ O QUE FALTA:
 CORRIGIR:
 	- Nome do grupo
 	- ':' após nomes compostos
+
+	# elif opcao == "M":
+	# 	usuarios = sorted(usuarios.items(), key=lambda x: x[1]['mensagem'], reverse=True)
+
+	# elif opcao == "S":
+	# 	usuarios = sorted(usuarios.items(), key=lambda x: x[1]['sticker'], reverse=True)
+
+	# elif opcao == "I":
+	# 	usuarios = sorted(usuarios.items(), key=lambda x: x[1]['image'], reverse=True)
+
+	# elif opcao == "A":
+	# 	usuarios = sorted(usuarios.items(), key=lambda x: x[1]['audio'], reverse=True)
+
+	# while i < len(linha) and not linha[i].endswith(":"):
+	# 	nomeGrupo += linha[i] + " "
+	# 	i += 1
